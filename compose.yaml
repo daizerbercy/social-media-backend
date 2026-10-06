@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: social-media-postgres
+    environment:
+      POSTGRES_DB: social_media
+      POSTGRES_USER: social_media_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
