@@ -1,6 +1,8 @@
 package com.daizer.social_media_backend.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 // this is the schema of my DB
 @Entity
 @Table(name = "users")
@@ -9,9 +11,16 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotBlank
+    @Column(unique = true, nullable = false)
     private String username;
+
+    @NotBlank
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @NotBlank
+    @Column(nullable = false)
     private String password;
 
     public UserModel(){
@@ -49,9 +58,5 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setId(Long id) {
-
     }
 }
