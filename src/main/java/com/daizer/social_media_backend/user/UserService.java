@@ -1,6 +1,7 @@
 package com.daizer.social_media_backend.user;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -30,11 +31,11 @@ public class UserService {
         }
 
         if(repo.existsByUsername(user.getUsername())){
-            throw new IllegalArgumentException("This username is already used");
+            throw new DuplicateUserException("This username is already used");
         }
 
         if(repo.existsByEmail(user.getEmail())){
-            throw new IllegalArgumentException("This email is already used");
+            throw new DuplicateUserException("This email is already used");
         }
         return repo.save(user);
     }
