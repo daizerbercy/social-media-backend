@@ -20,7 +20,7 @@ The goal of this project is to build a backend for a social media platform, star
 
 ## Architecture
 
-[Consulter l'architecture](./docs/architecture.md)
+[View the architecture](./docs/architecture.md)
 
 ## Roadmap
 
