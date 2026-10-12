@@ -20,12 +20,7 @@ The goal of this project is to build a backend for a social media platform, star
 
 ## Architecture
 
-The application uses a layered architecture to separate responsibilities:
-
-- **Controller** — Handles HTTP requests and responses.
-- **Service** — Implements business logic.
-- **Repository** — Manages database access.
-- **Entity** — Represents the application's data model.
+[Consulter l'architecture](./docs/architecture.md)
 
 ## Roadmap
 
