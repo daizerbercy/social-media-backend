@@ -2,7 +2,6 @@ package com.daizer.social_media_backend.controller;
 
 import com.daizer.social_media_backend.model.User;
 import com.daizer.social_media_backend.service.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +37,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user){
         User created = service.createUser(user);
-        return ResponseEntity.created(URI.create("/social-media/users" + created.getId())).body(created);
+        return ResponseEntity.created(URI.create("/social-media/users/" + created.getId())).body(created);
     }
 
 

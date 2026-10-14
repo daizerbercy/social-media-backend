@@ -1,5 +1,6 @@
 package com.daizer.social_media_backend.service;
 
+import com.daizer.social_media_backend.exception.DuplicateUserException;
 import com.daizer.social_media_backend.model.User;
 import com.daizer.social_media_backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,14 @@ public class UserService {
     }
 
     public User createUser(User user) {
+        if(repo.existsByUsername(user.getUsername())){
+            throw new DuplicateUserException("Username Already exists");
+        }
+
+        if(repo.existsByEmail(user.getEmail())){
+            throw new DuplicateUserException("Email Already exists");
+        }
+
         return repo.save(user);
     }
 
