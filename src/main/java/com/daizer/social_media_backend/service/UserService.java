@@ -1,10 +1,10 @@
 package com.daizer.social_media_backend.service;
 
 import com.daizer.social_media_backend.exception.DuplicateUserException;
+import com.daizer.social_media_backend.exception.InvalidUserException;
 import com.daizer.social_media_backend.model.User;
 import com.daizer.social_media_backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +32,14 @@ public class UserService {
 
         if(repo.existsByEmail(user.getEmail())){
             throw new DuplicateUserException("Email Already exists");
+        }
+
+        if (user.getUsername() == null || user.getUsername().isBlank()) {
+            throw new InvalidUserException("Username must not be blank");
+        }
+
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
+            throw new InvalidUserException("Email must not be blank");
         }
 
         return repo.save(user);

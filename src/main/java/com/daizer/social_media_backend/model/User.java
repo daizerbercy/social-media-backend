@@ -1,6 +1,7 @@
 package com.daizer.social_media_backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -16,6 +17,7 @@ public class User {
 
     @NotBlank
     @Column(unique = true, nullable = false)
+    @Email
     private String email;
 
     @NotBlank
