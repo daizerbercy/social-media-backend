@@ -1,12 +1,11 @@
-package com.daizer.social_media_backend.user;
+package com.daizer.social_media_backend.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-// this is the schema of my DB
 @Entity
 @Table(name = "users")
-public class UserModel {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,10 +22,10 @@ public class UserModel {
     @Column(nullable = false)
     private String password;
 
-    public UserModel(){
+    public User(){
     }
 
-    public UserModel(String username, String email, String password){
+    public User(String username, String email, String password){
         this.email = email;
         this.username = username;
         this.password = password;
