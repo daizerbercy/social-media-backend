@@ -7,7 +7,7 @@ It explains the responsibilities of the main components, how they interact with 
 ## Architecture Diagram
 ```mermaid
 flowchart TD;
-    Client -.http.-> Ctr([Controller]);
+    Client <-.http.-> Ctr([Controller]);
     Ctr --> Srv([Service]);
     Srv --> Rep([Repository]);
     Rep --> DB[(Database)];
@@ -16,7 +16,7 @@ flowchart TD;
 *Note: This diagram represents a typical layered architecture. 
 It should be updated to reflect the components actually implemented in the project.*
 
-## Component Responsabilities
+## Component Responsibilities
 ### Client
 The client sends HTTP requests to the backend and receives HTTP responses.
 
@@ -31,8 +31,6 @@ The repository layer handles data access.
 
 ### Database
 The database stores application data persistently.
-
-
 
 ## Code Architecture
 
